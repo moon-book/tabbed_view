@@ -7,6 +7,35 @@
 
 Flutter widget inspired by the classic Desktop-style tab component. Supports customizable themes.
 
+## Standalone tab bar
+
+`TabbedViewTabBar` lets the tabs and content participate in different parts of
+your layout while sharing the same controller:
+
+```dart
+Column(
+  children: [
+    TabbedViewTabBar(
+      controller: controller,
+      theme: TabbedViewTabBarThemeData.classic(
+        colorSet: Colors.teal,
+      ),
+    ),
+    Expanded(
+      child: TabbedView(
+        controller: controller,
+        tabsAreaVisible: false,
+      ),
+    ),
+  ],
+)
+```
+
+The standalone bar also provides `TabbedViewTabBar.declarative` for externally
+managed tab lists and selections. Its theme is independent from
+`TabbedViewTheme`; use `TabbedViewTabBarThemeData` to customize the tabs area,
+individual tabs, overflow menu, and divider.
+
 ![](https://caduandrade.github.io/tabbed_view/classic_top_light.png)
 
 ![](https://caduandrade.github.io/tabbed_view/classic_bottom_dark.png)
